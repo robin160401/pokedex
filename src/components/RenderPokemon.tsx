@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchAllPokemonList, fetchPokemonById } from "../lib/fetchAllPokemon";
+import { fetchAllPokemonList, fetchPokemonById, PokemonInfos } from "../lib/fetchAllPokemon";
 
 interface Pokemon {
     name: string;
@@ -8,19 +8,20 @@ interface Pokemon {
 
 
 export default function RenderPokemon() {
-    const [pokemonList, setPokemonList] = useState([]);
+    const [pokemonList, setPokemonList] = useState<PokemonInfos[]>([]);
 
     const fetchPokemonNamesAndDetails = async () => {
         const pokemonList: Pokemon[] = await fetchAllPokemonList();
-        const detailedPokemonList = await Promise.all(
+        const detailedPokemonList: PokemonInfos[] = await Promise.all(
             pokemonList.map(async (pokemon) => {
                 const details = await fetchPokemonById(pokemon.url);
                 return { ...pokemon, ...details };
             })
         );
         setPokemonList(detailedPokemonList);
+        console.log(detailedPokemonList);
     };
-ç
+
     useEffect(() => {
         fetchPokemonNamesAndDetails();
     }, []);
@@ -32,7 +33,7 @@ export default function RenderPokemon() {
                 {pokemonList.map((pokemon, index) => (
                     <div key={index}>
                         <h2>{pokemon.name}</h2>
-                        <p>ID: {pokemon.id}</p>
+                        <p>ID: {pokemon.order}</p>
                         <p>Height: {pokemon.height}</p>
                         <p>Weight: {pokemon.weight}</p>
                     </div>
