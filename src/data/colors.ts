@@ -20,7 +20,7 @@ export const colors = {
   water: "#00a0e4",
 };
 
-const allTypes = [
+export const allTypes = [
   "Bug",
   "Dragon",
   "Fairy",
