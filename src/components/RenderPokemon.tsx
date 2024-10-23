@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
-import { fetchAllPokemonList, fetchPokemonById, PokemonInfos } from "../lib/fetchAllPokemon";
-
-interface Pokemon {
-    name: string;
-    url: string;
-}
-
+import { fetchAllPokemonList, fetchPokemonById} from "../lib/fetchAllPokemon";
+import { PokemonInfos, Pokemon } from "../interface/PokemonDetails";
 
 export default function RenderPokemon() {
     const [pokemonList, setPokemonList] = useState<PokemonInfos[]>([]);
@@ -36,6 +31,7 @@ export default function RenderPokemon() {
                         <p>ID: {pokemon.order}</p>
                         <p>Height: {pokemon.height}</p>
                         <p>Weight: {pokemon.weight}</p>
+                        <img src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
                     </div>
                 ))}
             </ul>
