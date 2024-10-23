@@ -27,11 +27,11 @@ export default function RenderPokemon() {
             <ul>
                 {pokemonList.map((pokemon, index) => (
                     <div key={index}>
-                        <h2>{pokemon.name}</h2>
-                        <p>ID: {pokemon.order}</p>
-                        <p>Height: {pokemon.height}</p>
-                        <p>Weight: {pokemon.weight}</p>
                         <img src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
+                        <div>
+                            <p>ID: {pokemon.order}</p>
+                            <p>{pokemon.name}</p>
+                        </div>
                     </div>
                 ))}
             </ul>

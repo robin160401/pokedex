@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../public/pokeapi_logo.svg";
-import RenderPokemon from "./RenderPokemon";
 
 export default function Header() {
   return (
@@ -12,7 +11,6 @@ export default function Header() {
       <button>DarkMode</button>
       {/* //? https://www.npmjs.com/package/react-toggle-dark-mode //? wir könnten
       dieses package installieren!? */}
-      <RenderPokemon />
     </header>
   );
 }
