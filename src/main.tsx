@@ -4,6 +4,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import HomePage from "./pages/Homepage";
+import TypesPage from "./pages/TypesPage";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/types",
-        element: "TypesPage",
+        element: <TypesPage />,
       },
       {
         path: "/search",
