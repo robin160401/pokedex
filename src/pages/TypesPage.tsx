@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { colors } from "../data/colors";
 
 const allTypes = [
   "Bug",
@@ -22,6 +23,21 @@ const allTypes = [
   "Steel",
 ];
 
+interface ButtonProps {
+  type: string;
+  onClick: () => void;
+}
+
+const TypeButton: React.FC<ButtonProps> = ({ type, onClick }) => {
+  const buttonColor = "colors";
+
+  return (
+    <button style={{ backgroundColor: buttonColor }} onClick={onClick}>
+      {type}
+    </button>
+  );
+};
+
 export default function TypesPage() {
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
 
@@ -41,13 +57,11 @@ export default function TypesPage() {
       <h2>Type</h2>
       <div>
         {allTypes.map((type) => (
-          <button
+          <TypeButton
             key={type}
+            type={type}
             onClick={() => handleTypeSelect(type)}
-            //   style={{ backgroundColor: /* Farbe für den Typ */ }}
-          >
-            {type}
-          </button>
+          />
         ))}
         <button>Search</button> /* onClick fuer handleSearch fehlt noch */
       </div>

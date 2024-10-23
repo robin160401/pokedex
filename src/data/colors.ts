@@ -19,7 +19,7 @@ export const colors = {
   water: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/11.png",
 };
 
-const allTypes = [
+export const allTypes = [
   "Bug",
   "Dragon", 
   "Fairy",    
