@@ -1,1 +1,51 @@
+@font-face {
+  font-family: Roboto;
+  src: url(../public/fonts/Roboto-Regular.ttf);
+}
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Roboto;
+  background-color: darkgrey;
+}
+
+/* HomePage */
+
+.main-container {
+  width: 90vw;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 5rem;
+  margin: 5rem auto;
+  justify-items: center;
+}
+
+.pokeCard {
+  width: 12rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  background-color: yellow;
+}
+.pokeCard img {
+  object-fit: contain;
+  max-width: 100%;
+  margin-top: -6vh;
+  padding: 2%;
+}
+.pokeCard-Detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}

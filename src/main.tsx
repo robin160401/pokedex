@@ -6,6 +6,10 @@ import Layout from "./components/Layout";
 import HomePage from "./pages/Homepage";
 import TypesPage from "./pages/TypesPage";
 
+window.addEventListener(`resize`, () => {
+  const width = document.querySelector("pokeCard").offsetWidth;
+});
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,4 +40,3 @@ createRoot(document.getElementById("root")!).render(
     <RouterProvider router={router} />
   </StrictMode>
 );
-
