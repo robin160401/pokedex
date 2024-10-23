@@ -21,7 +21,7 @@ function PokemonDetails({ pokemon }) {
       <h1>{pokemon.name}</h1>
       <img src={pokemon.sprite} alt={pokemon.name} />
       <p>Typ: {pokemon.type}</p>
-      <p>Fähigkeiten: {pokemon.abilities.join(', ')}</p>
+      <p>Fähigkeiten: {pokemon.abilities.join(", ")}</p>
     </div>
   );
 }
@@ -29,13 +29,11 @@ function PokemonDetails({ pokemon }) {
 function PokemonList() {
   return (
     <div>
-      <ul>
         {pokemonData.map(pokemon => (
-          <li key={pokemon.name}>
+          <p>
             <PokemonDetails pokemon={pokemon} />
-          </li>
+          </p>
         ))}
-      </ul>
     </div>
   );
 }
