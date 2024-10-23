@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from "../../public/pokeapi_logo.png";
+import logo from "../../public/pokeapi_logo.svg";
 
 export default function Header() {
   return (
