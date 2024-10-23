@@ -6,11 +6,11 @@ export default function Header() {
     <header>
       <img src={logo} alt="PokemonLogo" />
       <nav>links</nav>
-      //? navlinks für "Types" und was noch?
+      {/* navlinks für "Types" und was noch? */}
       <input type="text" name="search" placeholder="Search Pokemon" />
       <button>DarkMode</button>
-      //? https://www.npmjs.com/package/react-toggle-dark-mode //? wir könnten
-      dieses package installieren!?
+      {/* //? https://www.npmjs.com/package/react-toggle-dark-mode //? wir könnten
+      dieses package installieren!? */}
     </header>
   );
 }
