@@ -30,7 +30,7 @@ type Stats = {
 }
 
 
-export interface PokemonInfos {
+export interface PokemonInfos extends Pokemon{
     order: number;
     abilities: Abilitie[];
     types: Types[];
