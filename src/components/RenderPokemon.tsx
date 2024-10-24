@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchAllPokemonList, fetchPokemonById } from "../lib/fetchAllPokemon";
 import { PokemonInfos, Pokemon } from "../interface/PokemonDetails";
 
-export default function RenderPokemon() {
+export default function RenderPokemon(props: string) {
   const [pokemonList, setPokemonList] = useState<PokemonInfos[]>([]);
 
   const fetchPokemonNamesAndDetails = async () => {
@@ -20,6 +20,10 @@ export default function RenderPokemon() {
   useEffect(() => {
     fetchPokemonNamesAndDetails();
   }, []);
+
+  const filteredPokemonList = pokemonList.filter(pokemon =>
+	pokemon.name.includes(searchFor.toLowerCase())
+  );
 
   return (
     <div className="main-container">
