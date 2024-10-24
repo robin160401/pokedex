@@ -10,7 +10,12 @@ const PopupTypes: React.FC<PopupTypesProps> = ({ isOpen, onClose }) => {
   return (
     <div className="overlay">
       <div className="popup">
-        <h2>Types</h2>
+        <div className="popup-heading">
+          <h2>Type</h2>
+          <button className="closeBtn" onClick={onClose}>
+            ❌
+          </button>
+        </div>
         <div className="types-container">
           {Object.keys(types).map((type) => (
             <button className="typesBtn" key={type}>
@@ -18,7 +23,7 @@ const PopupTypes: React.FC<PopupTypesProps> = ({ isOpen, onClose }) => {
             </button>
           ))}
         </div>
-        <button onClick={onClose}>"❌</button>
+        <button className="searchBtn">Search</button>
       </div>
     </div>
   );
