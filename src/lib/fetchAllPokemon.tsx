@@ -7,7 +7,7 @@ export async function fetchAllPokemonList(){
     return pokemons;
 }
 
-export async function fetchPokemonById(url: string){
+export async function fetchPokemonByI(url: string){
     const response = await fetch(url)
     const json = (await response.json() as PokemonInfos);
     const pokemon: PokemonInfos = json;

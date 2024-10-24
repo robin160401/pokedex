@@ -32,6 +32,10 @@ const router = createBrowserRouter([
         path: "/pokemon/:id",
         element: <DetailsPage />,
       },
+	  {
+		path: "/type/:num",
+		element: "Types"
+	  }
     ],
   },
 ]);
