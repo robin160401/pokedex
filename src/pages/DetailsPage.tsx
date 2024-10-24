@@ -3,7 +3,6 @@ import { PokemonInfos } from "../interface/PokemonDetails";
 import { fetchPokemonById } from "../lib/fetchAllPokemon";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import PlaySound from "../components/Playsound";
 
 
 function DetailsPage() {
