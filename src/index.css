@@ -14,12 +14,35 @@ html {
   background-color: darkgrey;
 }
 
+/* Theme  Dark/Light-Mode*/
+
+.themeBtn {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.theme {
+  height: 100%;
+}
+
+.theme--dark {
+  background-color: #222;
+}
+
+.pokeCard.theme--dark {
+  background-color: teal;
+}
+
 /* HomePage */
 
 .main-container {
   width: 90vw;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   row-gap: 5rem;
   margin: 5rem auto;
   justify-items: center;

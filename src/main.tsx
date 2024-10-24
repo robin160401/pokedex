@@ -5,10 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import HomePage from "./pages/Homepage";
 import TypesPage from "./pages/TypesPage";
-
-window.addEventListener(`resize`, () => {
-  const width = document.querySelector("pokeCard").offsetWidth;
-});
+import { ThemeContextProvider } from "./contexts/themeContext";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +34,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ThemeContextProvider>
+      <RouterProvider router={router} />
+    </ThemeContextProvider>
   </StrictMode>
 );

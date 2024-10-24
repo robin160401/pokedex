@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import logo from "../../public/pokeapi_logo.svg";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function Header() {
   return (
@@ -8,7 +8,7 @@ export default function Header() {
       <div>
         <button>Burger</button>
         <input type="text" name="search" placeholder="Search Pokemon" />
-        <button>DarkMode</button>
+        <ThemeSwitcher />
       </div>
     </header>
   );
