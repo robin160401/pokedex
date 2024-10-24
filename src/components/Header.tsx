@@ -19,19 +19,24 @@ export default function Header() {
 
   return (
     <header>
-      <img src={logo} alt="PokemonLogo" />
-      <button onClick={openPopup}>Popup</button>
-      <PopupTypes isOpen={isPopupOpen} onClose={closePopup} />
-      <input
-        type="text"
-        onChange={(event) => {
-          setSearchFor(event.target.value);
-		  setSearchType("");
-        }}
-        name="search"
-        placeholder="Search Pokemon"
-      />
-      <ThemeSwitcher />
+
+      <img className="logo" src={logo} alt="PokemonLogo" />
+      <nav>
+        <button className="burgerBtn" onClick={openPopup}>
+          <img src="/public/Vector.svg" alt="burgermenu" />
+        </button>
+        <PopupTypes isOpen={isPopupOpen} onClose={closePopup} />
+        <input
+          type="text"
+          onChange={(event) => {
+            setSearchFor(event.target.value);
+          }}
+          name="search"
+          placeholder="Search Pokemon"
+        />
+        <ThemeSwitcher />
+      </nav>
+
     </header>
   );
 }

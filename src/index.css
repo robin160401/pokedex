@@ -103,6 +103,37 @@ html {
   border: none;
 }
 
+/* Header */
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 67.5%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+nav {
+  max-width: 50%;
+  min-width: 45%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+}
+nav input {
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+}
+
+.burgerBtn {
+  background-color: transparent;
+  border: none;
+}
 /* HomePage */
 
 .main-container {
