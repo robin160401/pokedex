@@ -39,7 +39,7 @@ function DetailsPage() {
 			<h1>{pokemon.name}</h1>
       		<img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
       		<p>Typ: {pokemon.types[0].type.name}</p>
-      		<p>Fähigkeiten: {pokemon.abilities.join(", ")}</p>
+      		<p>Fähigkeiten: {`${pokemon.abilities[0].ability.name}, ${pokemon.abilities[1].ability.name}`}</p>
 			<button onClick={handlePlayPause}>
           	{isPlaying ? "Pause" : "Play"}
         	</button>
