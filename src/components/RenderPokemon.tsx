@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 export default function RenderPokemon() {
   const { theme } = useThemeContext();
-
   const [pokemonList, setPokemonList] = useState<PokemonInfos[]>([]);
 
   const fetchPokemonNamesAndDetails = async () => {
@@ -26,15 +25,22 @@ export default function RenderPokemon() {
     fetchPokemonNamesAndDetails();
   }, []);
 
-  	const {searchFor} = useSearch();
+	const {searchFor} = useSearch();
+	const {searchType} = useSearch();
 	
   const filteredPokemonList = pokemonList.filter(pokemon =>
 	pokemon.name.includes(searchFor.toLowerCase())
   );
 
+  const filteredPokemonByTypes = filteredPokemonList.filter(pokemon =>
+	pokemon.types[0].type.name.includes(searchType)
+  )
+
+
+
   return (
     <div className="main-container">
-     {filteredPokemonList.map((pokemon, index) => (
+     {filteredPokemonByTypes.map((pokemon, index) => (
         <div
           key={index}
           className={`pokeCard ${
