@@ -11,7 +11,6 @@ export default function Layout() {
       <Header />
       <Outlet />
       <Footer />
-
     </div>
   );
 }
