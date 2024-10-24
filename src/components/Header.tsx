@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function Header() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const { searchFor, setSearchFor } = useSearch();
+  const { searchType, setSearchType } = useSearch();
 
   const openPopup = () => {
     setIsPopupOpen(true);
@@ -25,6 +26,7 @@ export default function Header() {
         type="text"
         onChange={(event) => {
           setSearchFor(event.target.value);
+		  setSearchType("");
         }}
         name="search"
         placeholder="Search Pokemon"
