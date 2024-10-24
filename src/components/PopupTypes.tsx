@@ -7,8 +7,7 @@ interface PopupTypesProps {
 }
 
 const PopupTypes: React.FC<PopupTypesProps> = ({ isOpen, onClose }) => {
-	const { searchType, setSearchType } = useSearch();
-
+  const { searchType, setSearchType } = useSearch();
 
   if (!isOpen) return null;
 
@@ -23,19 +22,19 @@ const PopupTypes: React.FC<PopupTypesProps> = ({ isOpen, onClose }) => {
         </div>
         <div className="types-container">
           {Object.keys(types).map((type) => (
-            <button 
-			className="typesBtn"
-			key={type}
-			onClick={() => {
-				setSearchType(type);
-				console.log(type);
-				onClose();
-			}}>
+            <button
+              className="typesBtn"
+              key={type}
+              onClick={() => {
+                setSearchType(type);
+                console.log(type);
+                onClose();
+              }}
+            >
               <img src={types[type as keyof typeof types]} alt={type} />
             </button>
           ))}
         </div>
-        <button className="searchBtn">Search</button>
       </div>
     </div>
   );
