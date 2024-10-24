@@ -4,7 +4,6 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import HomePage from "./pages/Homepage";
-import TypesPage from "./pages/TypesPage";
 import { ThemeContextProvider } from "./contexts/themeContext";
 import { SearchProvider } from "./components/SearchContextProvider";
 import DetailsPage from "./pages/DetailsPage";
