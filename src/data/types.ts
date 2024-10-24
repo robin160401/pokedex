@@ -1,25 +1,4 @@
-interface TypeMap {
-  bug: string;
-  dark: string;
-  dragon: string;
-  electric: string;
-  fairy: string;
-  fire: string;
-  ghost: string;
-  ground: string;
-  normal: string;
-  poison: string;
-  rock: string;
-  water: string;
-  fighting: string;
-  flying: string;
-  grass: string;
-  ice: string;
-  psychic: string;
-  steel: string;
-}
-
-export const types: TypeMap = {
+export const types = {
   bug: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/7.png",
   dark: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/17.png",
   dragon:
