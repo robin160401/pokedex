@@ -1,16 +1,24 @@
+import { types } from "../data/types";
+
 interface PopupTypesProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
 const PopupTypes: React.FC<PopupTypesProps> = ({ isOpen, onClose }) => {
-  if (!isOpen) return null; // Nichts rendern, wenn das Popup nicht offen ist
-
+  if (!isOpen) return null;
   return (
     <div className="overlay">
       <div className="popup">
-        <h2>Popup Inhalt</h2>
-        <button onClick={onClose}>Schließen</button>
+        <h2>Types</h2>
+        <div className="types-container">
+          {Object.keys(types).map((type) => (
+            <button className="typesBtn" key={type}>
+              <img src={types[type as keyof typeof types]} alt={type} />
+            </button>
+          ))}
+        </div>
+        <button onClick={onClose}>"❌</button>
       </div>
     </div>
   );

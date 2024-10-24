@@ -3,7 +3,6 @@ import PopupTypes from "./PopupTypes";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { useSearch } from "./SearchContextProvider";
 import { useState } from "react";
-import { colors } from "../data/colors";
 
 export default function Header() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -20,7 +19,7 @@ export default function Header() {
   return (
     <header>
       <img src={logo} alt="PokemonLogo" />
-      <button onClick={openPopup}>Popup öffnen</button>
+      <button onClick={openPopup}>Popup</button>
       <PopupTypes isOpen={isPopupOpen} onClose={closePopup} />
       <input
         type="text"
