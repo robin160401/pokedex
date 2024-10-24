@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const { searchFor, setSearchFor } = useSearch();
-  const { searchType, setSearchType } = useSearch();
+  const { setSearchFor } = useSearch();
+  const { setSearchType } = useSearch();
 
   const openPopup = () => {
     setIsPopupOpen(true);

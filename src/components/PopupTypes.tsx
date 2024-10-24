@@ -7,7 +7,7 @@ interface PopupTypesProps {
 }
 
 const PopupTypes: React.FC<PopupTypesProps> = ({ isOpen, onClose }) => {
-  const { searchType, setSearchType } = useSearch();
+  const { setSearchType } = useSearch();
 
   if (!isOpen) return null;
 
