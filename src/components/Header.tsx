@@ -5,10 +5,9 @@ import { useSearch } from "./SearchContextProvider";
 import { useState } from "react";
 import { colors } from "../data/colors";
 
-
 export default function Header() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const {searchFor, setSearchFor} = useSearch();
+  const { searchFor, setSearchFor } = useSearch();
 
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
@@ -17,31 +16,31 @@ export default function Header() {
   return (
     <header>
       <img src={logo} alt="PokemonLogo" />
-
-      <button onClick={togglePopup}>Types</button>
-      {isPopupOpen && (
-        <div className="popup">
-          <h2>Alle Typen</h2>
-          <ul>
-            {Object.keys(colors).map((color) => (
-              <li key={color}>
-              <img src={colors[color]} alt={color} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <input type="text" name="search" placeholder="Search Pokemon" />
-      <button>DarkMode</button>
-
       <div>
-        <button>Burger</button>
+        <button onClick={togglePopup}>Types</button>
+        {isPopupOpen && (
+          <div className="popup">
+            <h2>Alle Typen</h2>
+            <ul>
+              {Object.keys(colors).map((color) => (
+                <li key={color}>
+                  <img src={colors[color]} alt={color} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-        <input type="text" onChange={(event) => {setSearchFor(event.target.value)}} name="search" placeholder="Search Pokemon" />
+        <input
+          type="text"
+          onChange={(event) => {
+            setSearchFor(event.target.value);
+          }}
+          name="search"
+          placeholder="Search Pokemon"
+        />
         <ThemeSwitcher />
-
       </div>
-
     </header>
   );
 }
