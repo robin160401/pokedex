@@ -7,7 +7,7 @@ import HomePage from "./pages/Homepage";
 import TypesPage from "./pages/TypesPage";
 import { ThemeContextProvider } from "./contexts/themeContext";
 import { SearchProvider } from "./components/SearchContextProvider";
-
+import DetailsPage from "./pages/DetailsPage";
 
 
 
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/pokemon/:id",
-        element: "DetailPage",
+        element: <DetailsPage />,
       },
     ],
   },

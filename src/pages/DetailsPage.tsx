@@ -1,41 +1,35 @@
+import { useEffect, useState } from "react";
+import { PokemonInfos } from "../interface/PokemonDetails";
+import { fetchPokemonById } from "../lib/fetchAllPokemon";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
+function DetailsPage() {
+	const [pokemon, setPokemon] = useState<PokemonInfos>();
+	const {id} = useParams();
 
-const pokemonData = [
-  {
-    name: 'Pikachu',
-    type: 'Electric',
-    abilities: ['Static', 'Lightning Rod'],
-    sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png'
-  },
-  {
-    name: 'Charmander',
-    type: 'Fire',
-    abilities: ['Blaze', 'Solar Power'],
-    sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png'
-  },
-];
+	const fetchPomemonDetailed = async () => {
+		const pokemonDetailed: PokemonInfos = await fetchPokemonById(`https://pokeapi.co/api/v2/pokemon/${id}`);
+		setPokemon(pokemonDetailed);
+	};
 
-function PokemonDetails({ pokemon }) {
+	useEffect(() => {
+		fetchPomemonDetailed();
+	}, []);
+
+	if (!pokemon)
+		return (<div>Pokemon not found</div>);
   return (
     <div>
-      <h1>{pokemon.name}</h1>
-      <img src={pokemon.sprite} alt={pokemon.name} />
-      <p>Typ: {pokemon.type}</p>
-      <p>Fähigkeiten: {pokemon.abilities.join(", ")}</p>
+		<div>
+			<h1>{pokemon.name}</h1>
+      		<img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
+      		<p>Typ: {pokemon.types[0].type.name}</p>
+      		<p>Fähigkeiten: {pokemon.abilities.join(", ")}</p>
+		</div>
+		<Link to="/">Back to Home</Link>
     </div>
   );
 }
 
-function PokemonList() {
-  return (
-    <div>
-        {pokemonData.map(pokemon => (
-          <p>
-            <PokemonDetails pokemon={pokemon} />
-          </p>
-        ))}
-    </div>
-  );
-}
-
-export default PokemonList;
+export default DetailsPage;
