@@ -1,14 +1,12 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../public/pokeapi_logo.svg";
 import { useSearch } from "./SearchContextProvider";
-
-export default function Header() {
 import { useState } from "react";
 import { colors } from "../data/colors";
-const {searchFor, setSearchFor} = useSearch();
 
 export default function Header() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const {searchFor, setSearchFor} = useSearch();
 
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
