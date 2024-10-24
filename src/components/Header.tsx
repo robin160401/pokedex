@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function Header() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const { searchFor, setSearchFor } = useSearch();
+  const { searchType, setSearchType } = useSearch();
 
   const openPopup = () => {
     setIsPopupOpen(true);
@@ -18,6 +19,7 @@ export default function Header() {
 
   return (
     <header>
+
       <img className="logo" src={logo} alt="PokemonLogo" />
       <nav>
         <button className="burgerBtn" onClick={openPopup}>
@@ -34,6 +36,7 @@ export default function Header() {
         />
         <ThemeSwitcher />
       </nav>
+
     </header>
   );
 }
