@@ -174,3 +174,33 @@ nav input {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+
+footer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 150px;
+  border-top: yellow solid 3px;
+  padding-top: 50px;
+  display: flex;
+}
+
+
+
+.github-link {
+  height: 40px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  color: black;
+
+  &:hover {
+      background: yellow;
+      color: black;
+      text-align: center;
+     }
+
+  &:hover:before {
+      transform: scale(1);
+  }
+}
