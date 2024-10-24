@@ -6,6 +6,10 @@ import Layout from "./components/Layout";
 import HomePage from "./pages/Homepage";
 import TypesPage from "./pages/TypesPage";
 import { ThemeContextProvider } from "./contexts/themeContext";
+import { SearchProvider } from "./components/SearchContextProvider";
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -35,7 +39,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeContextProvider>
+     <SearchProvider>
       <RouterProvider router={router} />
+     </SearchProvider>
     </ThemeContextProvider>
   </StrictMode>
 );
