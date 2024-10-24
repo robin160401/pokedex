@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useThemeContext } from "../contexts/themeContext";
 import { fetchAllPokemonList, fetchPokemonById } from "../lib/fetchAllPokemon";
 import { PokemonInfos, Pokemon } from "../interface/PokemonDetails";
 import { useSearch } from "./SearchContextProvider";
 
 export default function RenderPokemon() {
+  const { theme } = useThemeContext();
+
   const [pokemonList, setPokemonList] = useState<PokemonInfos[]>([]);
 
   const fetchPokemonNamesAndDetails = async () => {
@@ -30,8 +33,15 @@ export default function RenderPokemon() {
 
   return (
     <div className="main-container">
-      {filteredPokemonList.map((pokemon, index) => (
-        <div key={index} className="pokeCard">
+
+     {filteredPokemonList.map((pokemon, index) => (
+        <div
+          key={index}
+          className={`pokeCard ${
+            theme === "dark" ? "theme theme--dark" : "theme theme--light"
+          }`}
+        >
+
           <img
             src={pokemon.sprites.other["official-artwork"].front_default}
             alt={pokemon.name}

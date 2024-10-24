@@ -1,8 +1,10 @@
-import { NavLink } from "react-router-dom";
 import logo from "../../public/pokeapi_logo.svg";
+
+import ThemeSwitcher from "./ThemeSwitcher";
 import { useSearch } from "./SearchContextProvider";
 import { useState } from "react";
 import { colors } from "../data/colors";
+
 
 export default function Header() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -34,8 +36,10 @@ export default function Header() {
 
       <div>
         <button>Burger</button>
+
         <input type="text" onChange={(event) => {setSearchFor(event.target.value)}} name="search" placeholder="Search Pokemon" />
-        <button>DarkMode</button>
+        <ThemeSwitcher />
+
       </div>
 
     </header>
