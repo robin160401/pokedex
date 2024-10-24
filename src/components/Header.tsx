@@ -3,6 +3,7 @@ import PopupTypes from "./PopupTypes";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { useSearch } from "./SearchContextProvider";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -19,7 +20,9 @@ export default function Header() {
 
   return (
     <header>
-      <img src={logo} alt="PokemonLogo" />
+		<Link to="/">
+		<img src={logo} alt="PokemonLogo" />
+		</Link>
       <button onClick={openPopup}>Popup</button>
       <PopupTypes isOpen={isPopupOpen} onClose={closePopup} />
       <input
