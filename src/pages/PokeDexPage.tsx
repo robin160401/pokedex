@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { PokemonInfos } from "../interface/PokemonDetails";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // Importiere useNavigate
 import { fetchPokemonById, fetchSpecies } from "../lib/fetchAllPokemon";
 import { SpeciesDetailed } from "../interface/PokemonSpecies";
 
@@ -9,6 +9,7 @@ function PokeDexPage() {
     const [species, setSpecies] = useState<SpeciesDetailed>();
 
     const { id } = useParams();
+    const navigate = useNavigate();
     const audioRef = useRef<HTMLAudioElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentId, setCurrentId] = useState(Number(id));
@@ -51,97 +52,135 @@ function PokeDexPage() {
     const handlePokemonPlus = () => {
         const nextId = currentId + 1;
         setCurrentId(nextId);
-        fetchPokemonDetailed(nextId.toString());
+        navigate(`/pokedex/${nextId}`);
     };
 
     const handlePokemonMinus = () => {
         const nextId = currentId - 1;
         setCurrentId(nextId);
-        fetchPokemonDetailed(nextId.toString());
+        navigate(`/pokedex/${nextId}`);
     };
+
+    function scrollOneLineDown() {
+        const textField = document.querySelector(".textfield");
+        const lineHeight = 19;
+        if (textField)
+            textField.scrollBy({
+                top: lineHeight,
+                behavior: 'smooth'
+            });
+    }
+
+    function scrollOneLineUp() {
+        const textField = document.querySelector(".textfield");
+        const lineHeight = 16;
+        if (textField)
+            textField.scrollBy({
+                top: -lineHeight,
+                behavior: 'smooth'
+            });
+    }
 
     if (!pokemon) return <div>Pokemon not found</div>;
 
     return (
-        <div className="flexbox">
-            <div className="pokedex1">
-                <div className="pokedex-hat">
-                    <div className="big-circle">
-                        <div className="lense"></div>
+        <div className="pokedexPage">
+            <div className="flexbox">
+                <div className="pokedex1">
+                    <div className="pokedex-hat">
+                        <div className="big-circle">
+                            <div className="lense"></div>
+                        </div>
+                        <div className="small-circle red"></div>
+                        <div className="small-circle yellow"></div>
+                        <div className="small-circle green"></div>
                     </div>
-                    <div className="small-circle red"></div>
-                    <div className="small-circle yellow"></div>
-                    <div className="small-circle green"></div>
-                </div>
-                <div className="img-display-out">
-                    <img className="img-pokedex" src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
-                    <div className="flexbox">
-                        <div className="redsmallcircle" onClick={handlePlayPause}></div>
-                        <audio src={pokemon.cries.latest} ref={audioRef} />
-                        <div className="burgers">
-                            <div className="burger"></div>
-                            <div className="burger"></div>
-                            <div className="burger"></div>
-                            <div className="burger"></div>
+                    <div className="img-display-out">
+                        <img className="img-pokedex" src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
+                        <div className="flexbox">
+                            <div className="redsmallcircle" onClick={handlePlayPause}></div>
+                            <audio src={pokemon.cries.latest} ref={audioRef} />
+                            <div className="burgers">
+                                <div className="burger"></div>
+                                <div className="burger"></div>
+                                <div className="burger"></div>
+                                <div className="burger"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="userbuttons flexbox">
+                        <div className="flexbox">
+                            <div className="balken one"></div>
+                            <div className="balken two"></div>
+                        </div>
+                        <div className="blackcircle"></div>
+                        <div className="greenbox">{pokemon.name}</div>
+                        <div className="cross">
+                            <div className="up"></div>
+                            <div className="middle"></div>
+                            <div className="down"></div>
+                            <div className="left" onClick={handlePokemonMinus}></div>
+                            <div className="right" onClick={handlePokemonPlus}></div>
+                        </div>
+                        <div className="details flexbox">
+                            <div className="littleredball"></div>
+                            <p>...</p>
                         </div>
                     </div>
                 </div>
-                <div className="userbuttons flexbox">
-                    <div className="flexbox">
-                        <div className="balken one"></div>
-                        <div className="balken two"></div>
+                <div className="pokedex2 flexbox">
+                    <div className="textfield">
+                        <p>{species?.flavor_text_entries[5].flavor_text}</p>
+                        <br />
+                        <p>------------------</p>
+                        <br />
+                        <p>It has the Following Attacks:</p>
+                        <br />
+                        {pokemon.abilities.map((el, index) => <p>{`${index + 1} ${el.ability.name}`}</p>)}
+                        <br />
+                        <p>------------------</p>
+                        <br />
+                        <p>Base Stats</p>
+                        <br />
+                        <p>{`${pokemon.stats[0].base_stat} HP`}</p>
+                        <p>{`${pokemon.stats[1].base_stat} ATTACK`}</p>
+                        <p>{`${pokemon.stats[2].base_stat} DEFENSE`}</p>
+                        <p>{`${pokemon.stats[5].base_stat} SPEED`}</p>
+                        <br />
                     </div>
-                    <div className="blackcircle"></div>
-                    <div className="greenbox">{pokemon.name}</div>
-                    <div className="cross">
-                        <div className="up"></div>
-                        <div className="middle"></div>
-                        <div className="down"></div>
-                        <div className="left" onClick={handlePokemonMinus}></div>
-                        <div className="right" onClick={handlePokemonPlus}></div>
+                    <div className="blue-buttons">
+                        <div className="flexbox">
+                            <div className="blue-button"></div>
+                            <div className="blue-button"></div>
+                            <div className="blue-button"></div>
+                            <div className="blue-button"></div>
+                            <div className="blue-button"></div>
+                        </div>
+                        <div className="flexbox">
+                            <div className="blue-button"></div>
+                            <div className="blue-button"></div>
+                            <div className="blue-button"></div>
+                            <div className="blue-button"></div>
+                            <div className="blue-button"></div>
+                        </div>
                     </div>
-                    <div className="details flexbox">
+                    <div className="balken-grau">
+                        <div className="balkengrau" onClick={scrollOneLineUp}></div>
+                        <div className="balkengrau" onClick={scrollOneLineDown}></div>
+                    </div>
+                    <div className="redballs flexbox">
                         <div className="littleredball"></div>
-                        <p>...</p>
+                        <div className="littleredball"></div>
                     </div>
-                </div>
-            </div>
-            <div className="pokedex2 flexbox">
-                <div className="textfield">
-                    {species?.flavor_text_entries[5]?.flavor_text || "No flavor text available"}
-                </div>
-                <div className="blue-buttons">
-                    <div className="flexbox">
-                        <div className="blue-button"></div>
-                        <div className="blue-button"></div>
-                        <div className="blue-button"></div>
-                        <div className="blue-button"></div>
-                        <div className="blue-button"></div>
+                    <div className="whiteboxes flexbox">
+                        <div className="whitebox"></div>
+                        <div className="whitebox"></div>
+                        <div className="yellowball"></div>
                     </div>
-                    <div className="flexbox">
-                        <div className="blue-button"></div>
-                        <div className="blue-button"></div>
-                        <div className="blue-button"></div>
-                        <div className="blue-button"></div>
-                        <div className="blue-button"></div>
+                    <div className="greyboxes flexbox">
+                        <div className="greybox">{pokemon.types[0].type.name}</div>
+                        <div className="greybox">{pokemon.types[1]?.type.name || ""}</div>
                     </div>
-                </div>
-                <div className="balken-grau">
-                    <div className="balkengrau"></div>
-                    <div className="balkengrau"></div>
-                </div>
-                <div className="redballs flexbox">
-                    <div className="littleredball"></div>
-                    <div className="littleredball"></div>
-                </div>
-                <div className="whiteboxes flexbox">
-                    <div className="whitebox"></div>
-                    <div className="whitebox"></div>
-                    <div className="yellowball"></div>
-                </div>
-                <div className="greyboxes flexbox">
-                    <div className="greybox">{pokemon.types[0].type.name}</div>
-                    <div className="greybox">{pokemon.name}</div>
                 </div>
             </div>
         </div>
@@ -149,4 +188,5 @@ function PokeDexPage() {
 }
 
 export default PokeDexPage;
+
 
