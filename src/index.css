@@ -20,7 +20,8 @@ html {
 
 li {
   list-style: none;
-  padding-left: 1rem;
+  padding-left: 2rem;
+  margin-top: 0.5rem;
 }
 
 /* Theme  Dark/Light-Mode*/
@@ -256,7 +257,7 @@ nav input {
 .pokeDetail {
   background-color: rgba(173, 216, 230, 0.5);
   width: 50%;
-  margin: 15rem auto;
+  margin: 3rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -319,12 +320,14 @@ nav input {
   text-transform: uppercase;
   color: #ffcb05;
   font-size: 1.6rem;
+  margin-right: 1rem;
 }
 
 .detailsText p {
   font-family: RobotoBk;
   font-weight: 400;
   margin-top: 1rem;
+  font-size: 1.2rem;
 }
 
 .playBtn {
