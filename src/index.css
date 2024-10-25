@@ -280,6 +280,7 @@ nav input {
   background-color: white;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  text-transform: capitalize;
 }
 
 /* DetailsPage */
