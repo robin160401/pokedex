@@ -21,7 +21,9 @@ export default function Header() {
   return (
     <header>
 		<Link to="/">
-      	<img className="logo" src={logo} alt="PokemonLogo" />
+      	<img className="logo" src={logo} alt="PokemonLogo" onClick={() => {
+			setSearchType("");
+		}}/>
 	  </Link>
       <nav>
         <button className="burgerBtn" onClick={openPopup}>

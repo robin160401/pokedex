@@ -27,20 +27,25 @@ export default function RenderPokemon() {
 
 	const {searchFor} = useSearch();
 	const {searchType} = useSearch();
-	
-  const filteredPokemonList = pokemonList.filter(pokemon =>
-	pokemon.name.includes(searchFor.toLowerCase())
-  );
 
-  const filteredPokemonByTypes = filteredPokemonList.filter(pokemon =>
-	pokemon.types[0].type.name.includes(searchType)
-  )
+	const formatId = (id: number) => {
+		return `#${String(id).padStart(3, '0')}`;
+	  };
+	
+	const filteredPokemonList = pokemonList.filter(pokemon =>
+		pokemon.name.includes(searchFor.toLowerCase())
+	);
+
+	const filteredPokemonByTypes = filteredPokemonList.filter(pokemon =>
+		pokemon.types[0].type.name.includes(searchType)
+  	);
 
 
 
   return (
     <div className="main-container">
      {filteredPokemonByTypes.map((pokemon, index) => (
+
         <div
           key={index}
           className={`pokeCard ${
@@ -54,7 +59,7 @@ export default function RenderPokemon() {
           	/>
 		</Link>
           <div className="pokeCard-Detail">
-            <p>ID: #{pokemon.id}</p>
+            <p>ID: {formatId(pokemon.id)}</p>
             <p>{pokemon.name}</p>
           </div>
         </div>
