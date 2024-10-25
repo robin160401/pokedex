@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { PokemonInfos } from "../interface/PokemonDetails";
 import { useParams } from "react-router-dom";
-import { Ability } from "../interface/PokemonDetails";
-import { fetchPokemonById } from "../lib/fetchAllPokemon";
+import { fetchPokemonById, fetchSpecies } from "../lib/fetchAllPokemon";
+import { SpeciesDetailed } from "../interface/PokemonSpecies";
 
 function PokeDexPage() {
     const [pokemon, setPokemon] = useState<PokemonInfos>();
+    const [species, setSpecies] = useState<SpeciesDetailed>();
 
     const { id } = useParams();
     const audioRef = useRef<HTMLAudioElement>(null);
@@ -18,9 +19,22 @@ function PokeDexPage() {
             setPokemon(pokemonDetailed);
         }
     };
+
+    const fetchSpeciesText = async (id: string | undefined) => {
+        if (id) {
+            const speciesDetailed: SpeciesDetailed = await fetchSpecies(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+            setSpecies(speciesDetailed);
+        }
+    };
+
     useEffect(() => {
         fetchPokemonDetailed(id);
+        setCurrentId(Number(id));
     }, [id]);
+
+    useEffect(() => {
+        fetchSpeciesText(currentId.toString());
+    }, [currentId]);
 
     const handlePlayPause = () => {
         if (isPlaying) {
@@ -40,7 +54,7 @@ function PokeDexPage() {
         fetchPokemonDetailed(nextId.toString());
     };
 
-	const handlePokemonMinus = () => {
+    const handlePokemonMinus = () => {
         const nextId = currentId - 1;
         setCurrentId(nextId);
         fetchPokemonDetailed(nextId.toString());
@@ -83,8 +97,7 @@ function PokeDexPage() {
                         <div className="middle"></div>
                         <div className="down"></div>
                         <div className="left" onClick={handlePokemonMinus}></div>
-                        <div className="right" onClick={handlePokemonPlus}>
-                        </div>
+                        <div className="right" onClick={handlePokemonPlus}></div>
                     </div>
                     <div className="details flexbox">
                         <div className="littleredball"></div>
@@ -94,12 +107,7 @@ function PokeDexPage() {
             </div>
             <div className="pokedex2 flexbox">
                 <div className="textfield">
-                    {pokemon.abilities.map((el: Ability) => (
-                        <p className="poketext" 
-							key={el.ability.name}>
-                            {`${el.ability.name}`}
-                        </p>
-                    ))}
+                    {species?.flavor_text_entries[5]?.flavor_text || "No flavor text available"}
                 </div>
                 <div className="blue-buttons">
                     <div className="flexbox">
@@ -140,3 +148,4 @@ function PokeDexPage() {
 }
 
 export default PokeDexPage;
+
