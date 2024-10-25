@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { PokemonInfos } from "../interface/PokemonDetails";
-import { fetchAbilities, fetchPokemonById } from "../lib/fetchAllPokemon";
 import { useParams } from "react-router-dom";
 import { Ability } from "../interface/PokemonDetails";
-import { PokemonAbilities } from "../interface/PokemonAbilities";
+import { fetchPokemonById } from "../lib/fetchAllPokemon";
 
 function PokeDexPage() {
     const [pokemon, setPokemon] = useState<PokemonInfos>();
