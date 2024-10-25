@@ -253,38 +253,37 @@ nav input {
 
 /* DetailsPage */
 
-/* .detailsCard {
-  margin: 25px auto;
-  padding-top: 0.01rem;
-  height: 60vw;
-  width: 40vw;
-  background-color: #222;
-  border-radius: 20px;
-} */
-
-.details-container {
-  width: 30vw;
+.pokeDetail {
+  background-color: rgba(173, 216, 230, 0.5);
+  width: 50%;
   margin: 15rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border-radius: 20px;
 }
 
 .pokeDetail h1 {
   text-transform: capitalize;
 }
 .imgContainer {
-  width: 25rem;
-  height: 20rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  margin-top: 3rem;
+  max-width: 60%;
+
   border-radius: 20px;
-  background-color: yellow;
+  background-color: #ffcb05;
+}
+
+.imgContainer.theme--dark {
+  background-color: teal;
 }
 
 .imgContainer img {
   object-fit: contain;
+  max-width: 100%;
+  margin-top: -6vh;
+  padding: 2%;
 }
 
 .detailsHeading {
@@ -311,7 +310,7 @@ nav input {
   text-transform: uppercase;
   margin-bottom: 2rem;
   text-align: center;
-  font-size: 30px;
+  font-size: 1.8rem;
 }
 
 .detailsText h3 {
@@ -319,7 +318,7 @@ nav input {
   font-weight: 900;
   text-transform: uppercase;
   color: #ffcb05;
-  font-size: 26px;
+  font-size: 1.6rem;
 }
 
 .detailsText p {
@@ -349,6 +348,7 @@ nav input {
 .typesImg img {
   margin-right: 0.2em;
 }
+
 /* Footer */
 
 footer {
