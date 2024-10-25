@@ -175,6 +175,45 @@ nav input {
   border-bottom-right-radius: 20px;
 }
 
+/* DetailsPage */
+
+.details-container {
+  width: 30vw;
+  margin: 15rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokeDetail h1 {
+  text-transform: capitalize;
+}
+.imgContainer {
+  width: 25vw;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 20px;
+  background-color: yellow;
+}
+
+.imgContainer img {
+  object-fit: contain;
+}
+
+.detailsHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  -webkit-text-stroke: 3px #2c72b8;
+  color: #ffcb05;
+  font-family: RobotoBk;
+  font-size: 25px;
+  font-weight: 900;
+}
 /* Footer */
 
 footer {
