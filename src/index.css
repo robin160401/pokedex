@@ -201,7 +201,7 @@ header a {
 }
 
 nav {
-  max-width: 50%;
+  max-width: 60%;
   min-width: 45%;
   display: flex;
   justify-content: space-evenly;
@@ -221,9 +221,13 @@ nav input {
 
 .main-container {
   width: 95vw;
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  row-gap: 5rem;
+  row-gap: 5rem; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3em;
+  justify-content: center;
   margin: 5rem auto;
   justify-items: center;
 }
@@ -235,12 +239,16 @@ nav input {
   flex-direction: column;
   justify-content: space-between;
   border-radius: 20px;
-  background-color: yellow;
+  background-color: #ffcb05;
+  margin-bottom: 1rem;
+}
+.pokeCard a {
+  text-align: center;
 }
 .pokeCard img {
   object-fit: contain;
-  max-width: 100%;
-  margin-top: -6vh;
+  max-width: 90%;
+  margin-top: -5vh;
   padding: 2%;
 }
 .pokeCard-Detail {
