@@ -70,11 +70,13 @@ function DetailsPage() {
 
               <p>
                 Fähigkeiten:{" "}
-                {`${pokemon.abilities[0].ability.name}, ${pokemon.abilities[1].ability.name}`}
+                <br/>
+                {pokemon.abilities.map((el) => <p>{el.ability.name}</p>)}
               </p>
               <p>
                 Moves:{" "}
-                {`${pokemon.moves[0].move.name}, ${pokemon.abilities[1].ability.name}`}
+                <br/>
+                {`${pokemon.moves[0].move.name}, ${pokemon.moves[1].move.name}`}
               </p>
             </div>
             <button className="playBtn" onClick={handlePlayPause}>
