@@ -230,6 +230,7 @@ nav input {
 .burgerBtn {
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 /* HomePage */
 
