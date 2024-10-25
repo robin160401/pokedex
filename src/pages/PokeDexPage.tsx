@@ -76,7 +76,8 @@ function PokeDexPage() {
                 <div className="img-display-out">
                     <img className="img-pokedex" src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
                     <div className="flexbox">
-                        <div className="redsmallcircle"></div>
+                        <div className="redsmallcircle" onClick={handlePlayPause}></div>
+                        <audio src={pokemon.cries.latest} ref={audioRef} />
                         <div className="burgers">
                             <div className="burger"></div>
                             <div className="burger"></div>
