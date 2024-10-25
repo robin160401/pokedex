@@ -72,19 +72,23 @@ function DetailsPage() {
             </div>
           </div>
 
-          <p>
-            Fähigkeiten:{" "}
-            {`${pokemon.abilities[0].ability.name}, ${pokemon.abilities[1].ability.name}`}
-          </p>
-          <p>
-            Moves:{" "}
-            {`${pokemon.moves[0].move.name}, ${pokemon.abilities[1].ability.name}`}
-          </p>
+              <p>
+                Fähigkeiten:{" "}
+                <br/>
+                {pokemon.abilities.map((el) => <p>{el.ability.name}</p>)}
+              </p>
+              <p>
+                Moves:{" "}
+                <br/>
+                {`${pokemon.moves[0].move.name}, ${pokemon.moves[1].move.name}`}
+              </p>
+            </div>
+            <button className="playBtn" onClick={handlePlayPause}>
+              <img src={playImg} alt="" />
+            </button>
+            <audio src={pokemon.cries.latest} ref={audioRef} />
+          </div>
         </div>
-        <button className="playBtn" onClick={handlePlayPause}>
-          <img src={playImg} alt="" />
-        </button>
-        <audio src={pokemon.cries.latest} ref={audioRef} />
       </div>
     </div>
   );

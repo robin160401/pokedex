@@ -261,6 +261,10 @@
 	padding-right: 5px;
 }
 
+.textfield p {
+	line-height: 14px;
+}
+
 .textfield::-webkit-scrollbar {
     display: none;
 }
@@ -339,4 +343,10 @@
 	margin-left: 40px;
 	text-align: center;
 	padding-top: 5px;
+}
+
+.pokedexPage {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
 }
