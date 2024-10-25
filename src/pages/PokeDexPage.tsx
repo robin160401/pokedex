@@ -1,17 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { PokemonInfos } from "../interface/PokemonDetails";
-import { useParams, useNavigate } from "react-router-dom"; // Importiere useNavigate
+import { useParams, useNavigate } from "react-router-dom";
 import { fetchPokemonById, fetchSpecies } from "../lib/fetchAllPokemon";
 import { SpeciesDetailed } from "../interface/PokemonSpecies";
+import trapTheme from "../assets/mp3/Voicy_Pikachu Trap Music.mp3";
 
 function PokeDexPage() {
     const [pokemon, setPokemon] = useState<PokemonInfos>();
     const [species, setSpecies] = useState<SpeciesDetailed>();
-
     const { id } = useParams();
     const navigate = useNavigate();
     const audioRef = useRef<HTMLAudioElement>(null);
-    const [isPlaying, setIsPlaying] = useState(false);
     const [currentId, setCurrentId] = useState(Number(id));
 
     const fetchPokemonDetailed = async (id: string | undefined) => {
@@ -37,16 +36,13 @@ function PokeDexPage() {
         fetchSpeciesText(currentId.toString());
     }, [currentId]);
 
-    const handlePlayPause = () => {
-        if (isPlaying) {
-            audioRef.current!.pause();
-        } else {
-            const playPromise = audioRef.current!.play();
+    const playSound = () => {
+        if (audioRef.current) {
+            const playPromise = audioRef.current.play();
             if (playPromise !== undefined) {
                 playPromise.catch((e) => console.error("Playback error:", e));
             }
         }
-        setIsPlaying(!isPlaying);
     };
 
     const handlePokemonPlus = () => {
@@ -88,7 +84,7 @@ function PokeDexPage() {
             <div className="flexbox">
                 <div className="pokedex1">
                     <div className="pokedex-hat">
-                        <div className="big-circle">
+                        <div className="big-circle" onClick={playSound}>
                             <div className="lense"></div>
                         </div>
                         <div className="small-circle red"></div>
@@ -98,8 +94,8 @@ function PokeDexPage() {
                     <div className="img-display-out">
                         <img className="img-pokedex" src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
                         <div className="flexbox">
-                            <div className="redsmallcircle" onClick={handlePlayPause}></div>
-                            <audio src={pokemon.cries.latest} ref={audioRef} />
+                            <audio ref={audioRef} src={trapTheme} />
+                            <div className="redsmallcircle"></div>
                             <div className="burgers">
                                 <div className="burger"></div>
                                 <div className="burger"></div>
@@ -136,7 +132,7 @@ function PokeDexPage() {
                         <br />
                         <p>It has the Following Attacks:</p>
                         <br />
-                        {pokemon.abilities.map((el, index) => <p>{`${index + 1} ${el.ability.name}`}</p>)}
+                        {pokemon.abilities.map((el, index) => <p key={el.ability.name}>{`${index + 1} ${el.ability.name}`}</p>)}
                         <br />
                         <p>------------------</p>
                         <br />
@@ -188,5 +184,3 @@ function PokeDexPage() {
 }
 
 export default PokeDexPage;
-
-
