@@ -187,11 +187,13 @@ li {
   background-color: transparent;
   border: none;
   padding: 2px;
+  cursor: pointer;
 }
 
 .closeBtn {
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 /* Header */
