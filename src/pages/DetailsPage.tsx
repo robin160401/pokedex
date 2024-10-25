@@ -55,12 +55,18 @@ function DetailsPage() {
             </div>
             <div className="detailsText">
               <h2>Attacks and Movements</h2>
-              <h3>
-                Typ{" "}
-                {pokemon.types.map((type, index) => (
-                  <li key={index}>{type.type.name}</li>
-                ))}{" "}
-              </h3>
+              <div className="typesDiv">
+                <h3>Types </h3>
+                <div className="typesImg">
+                  {pokemon.types.map((type, index) => (
+                    <img
+                      key={index}
+                      src={types[type.type.name as keyof typeof types]}
+                      alt={type.type.name}
+                    />
+                  ))}
+                </div>
+              </div>
 
               <p>
                 Fähigkeiten:{" "}
