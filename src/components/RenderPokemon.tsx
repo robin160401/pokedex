@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 export default function RenderPokemon() {
   const { theme } = useThemeContext();
   const [pokemonList, setPokemonList] = useState<PokemonInfos[]>([]);
+  
 
   const fetchPokemonNamesAndDetails = async () => {
     const pokemonList: Pokemon[] = await fetchAllPokemonList();

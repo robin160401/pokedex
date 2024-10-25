@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const { setSearchFor } = useSearch();
+  const { setSearchFor, searchFor } = useSearch();
   const { setSearchType } = useSearch();
 
   const openPopup = () => {
@@ -38,6 +38,7 @@ export default function Header() {
           }}
           name="search"
           placeholder="Search Pokemon"
+          value={searchFor}
         />
         <ThemeSwitcher />
       </nav>
