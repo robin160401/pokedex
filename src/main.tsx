@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import HomePage from "./pages/Homepage";
 import { ThemeContextProvider } from "./contexts/themeContext";
-import { SearchProvider } from "./components/SearchContextProvider";
+import { SearchProvider } from "./contexts/SearchContextProvider";
 import DetailsPage from "./pages/DetailsPage";
 import PokeDexPage from "./pages/PokeDexPage";
 
@@ -28,10 +28,10 @@ const router = createBrowserRouter([
         path: "/pokemon/:id",
         element: <DetailsPage />,
       },
-	  {
-		path: "/pokedex/:id",
-		element: <PokeDexPage/>
-	  }
+      {
+        path: "/pokedex/:id",
+        element: <PokeDexPage />,
+      },
     ],
   },
 ]);

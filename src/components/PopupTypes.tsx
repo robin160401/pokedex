@@ -1,5 +1,5 @@
 import { types } from "../data/types";
-import { useSearch } from "./SearchContextProvider";
+import { useSearch } from "../contexts/SearchContextProvider";
 
 interface PopupTypesProps {
   isOpen: boolean;

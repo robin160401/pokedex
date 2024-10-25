@@ -1,7 +1,7 @@
 import logo from "../../public/pokeapi_logo.svg";
 import PopupTypes from "./PopupTypes";
 import ThemeSwitcher from "./ThemeSwitcher";
-import { useSearch } from "./SearchContextProvider";
+import { useSearch } from "../contexts/SearchContextProvider";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -20,11 +20,16 @@ export default function Header() {
 
   return (
     <header>
-		<Link to="/">
-      	<img className="logo" src={logo} alt="PokemonLogo" onClick={() => {
-			setSearchType("");
-		}}/>
-	  </Link>
+      <Link to="/">
+        <img
+          className="logo"
+          src={logo}
+          alt="PokemonLogo"
+          onClick={() => {
+            setSearchType("");
+          }}
+        />
+      </Link>
       <nav>
         <button className="burgerBtn" onClick={openPopup}>
           <img src="/public/Vector.svg" alt="burgermenu" />
@@ -34,7 +39,7 @@ export default function Header() {
           type="text"
           onChange={(event) => {
             setSearchFor(event.target.value);
-			setSearchType("");
+            setSearchType("");
           }}
           name="search"
           placeholder="Search Pokemon"
