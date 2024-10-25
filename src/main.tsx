@@ -1,12 +1,14 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
+import "./css/style.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import HomePage from "./pages/Homepage";
 import { ThemeContextProvider } from "./contexts/themeContext";
 import { SearchProvider } from "./components/SearchContextProvider";
 import DetailsPage from "./pages/DetailsPage";
+import PokeDexPage from "./pages/PokeDexPage";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +29,8 @@ const router = createBrowserRouter([
         element: <DetailsPage />,
       },
 	  {
-		path: "/type/:num",
-		element: "Types"
+		path: "/pokedex/:id",
+		element: <PokeDexPage/>
 	  }
     ],
   },

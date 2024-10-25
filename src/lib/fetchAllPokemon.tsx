@@ -1,3 +1,4 @@
+import { PokemonAbilities } from "../interface/PokemonAbilities";
 import { PokemonInfos, Pokemon } from "../interface/PokemonDetails";
 
 export async function fetchAllPokemonList(){
@@ -11,5 +12,12 @@ export async function fetchPokemonById(url: string){
     const response = await fetch(url)
     const json = (await response.json() as PokemonInfos);
     const pokemon: PokemonInfos = json;
+    return pokemon;
+}
+
+export async function fetchAbilities(url: string){
+    const response = await fetch(url)
+    const json = (await response.json() as PokemonAbilities);
+    const pokemon: PokemonAbilities = json;
     return pokemon;
 }
