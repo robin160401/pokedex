@@ -18,6 +18,11 @@ html {
   background-color: darkgrey;
 }
 
+li {
+  list-style: none;
+  padding-left: 1rem;
+}
+
 /* Theme  Dark/Light-Mode*/
 
 .themeBtn {

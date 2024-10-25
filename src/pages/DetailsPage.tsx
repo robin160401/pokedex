@@ -3,6 +3,7 @@ import { PokemonInfos } from "../interface/PokemonDetails";
 import { fetchPokemonById } from "../lib/fetchAllPokemon";
 import { useParams } from "react-router-dom";
 import playImg from "../../public/play_yellow_button_icon_227852.svg";
+import { types } from "../data/types";
 
 const formatId = (id: number) => {
   return `#${String(id).padStart(3, "0")}`;
@@ -54,7 +55,12 @@ function DetailsPage() {
             </div>
             <div className="detailsText">
               <h2>Attacks and Movements</h2>
-              <h3>Typ: {pokemon.types[0].type.name}</h3>
+              <h3>
+                Typ{" "}
+                {pokemon.types.map((type, index) => (
+                  <li key={index}>{type.type.name}</li>
+                ))}{" "}
+              </h3>
 
               <p>
                 Fähigkeiten:{" "}

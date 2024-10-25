@@ -6,7 +6,7 @@ export default function ThemeSwitcher() {
   return (
     <button className="themeBtn" onClick={toggleTheme}>
       <img
-        src={theme === "light" ? "/night-mode.png" : "/brightness.png"}
+        src={theme === "light" ? "/night.png" : "/brightness.png"}
         alt="Theme icon"
         width={24}
         height={24}
