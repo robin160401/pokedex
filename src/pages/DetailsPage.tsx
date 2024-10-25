@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 
 import backArrow from "/public/back.svg";
 
+const formatId = (id: number) => {
+  return `#${String(id).padStart(3, "0")}`;
+};
+
 function DetailsPage() {
   const [pokemon, setPokemon] = useState<PokemonInfos>();
   const { id } = useParams();
@@ -40,17 +44,28 @@ function DetailsPage() {
       <Link to="/">
         <img src={backArrow} alt="back home" />
       </Link>
-      <div>
-        <h1>{pokemon.name}</h1>
-        <img
-          src={pokemon.sprites.other["official-artwork"].front_default}
-          alt={pokemon.name}
-        />
-        <p>Typ: {pokemon.types[0].type.name}</p>
+      <div className="pokeDetail">
+        <div className="imgContainer">
+          <img
+            src={pokemon.sprites.other["official-artwork"].front_default}
+            alt={pokemon.name}
+          />
+        </div>
+        <div className="detailsHeading">
+          <h2>{formatId(pokemon.id)}</h2>
+          <h1>{pokemon.name}</h1>
+        </div>
+        <h3>Typ: {pokemon.types[0].type.name}</h3>
+
         <p>
           Fähigkeiten:{" "}
           {`${pokemon.abilities[0].ability.name}, ${pokemon.abilities[1].ability.name}`}
         </p>
+        <p>
+          Moves:{" "}
+          {`${pokemon.moves[0].move.name}, ${pokemon.abilities[1].ability.name}`}
+        </p>
+
         <button onClick={handlePlayPause}>
           {isPlaying ? "Pause" : "Play"}
         </button>
