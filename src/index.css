@@ -205,4 +205,9 @@ footer {
   color: black;
   text-decoration: none;
   width: 170px;
+  padding: 10px;
+}
+.github-link>a:hover{
+  background-color: yellow;
+  border-radius: 5px;
 }
