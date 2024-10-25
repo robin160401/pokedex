@@ -1,10 +1,6 @@
 @font-face {
 	font-family: "ps2p";
-	src: url(./ps2p);
-}
-
-* {
-	
+	src: url(../../public/fonts/PressStart2P-Regular.ttf);
 }
 
 .pokedex1 {
@@ -18,7 +14,8 @@
 	border-radius: 10px 10px 0px 10px;
 	display: flex;
 	flex-direction: column;
-
+	font-family: "ps2p";
+	font-size: 10px;
 }
 
 .pokedex2 {
@@ -35,6 +32,8 @@
 	border-radius: 0px 10px 10px 0px;
 	flex-direction: column;
 	align-items: center;
+	font-family: "ps2p";
+	font-size: 10px;
 }
 
 .flexbox {
@@ -257,6 +256,9 @@
 	border: 2px solid black;
 	border-radius: 4px;
 	overflow: auto;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 .textfield::-webkit-scrollbar {
@@ -328,6 +330,7 @@
 }
 
 .greybox {
+	padding-top: 8px;
 	height: 35px;
 	min-width: 100px;
 	background-color: rgb(133, 133, 133);
