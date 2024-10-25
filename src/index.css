@@ -44,7 +44,21 @@ li {
 }
 
 .pokeCard.theme--dark {
-  background-color: teal;
+  background: rgb(66, 33, 97);
+  background: linear-gradient(
+    0deg,
+    rgba(66, 33, 97, 1) 0%,
+    rgba(34, 193, 195, 1) 83%
+  );
+}
+
+.imgContainer.theme--dark {
+  background: rgb(66, 33, 97);
+  background: linear-gradient(
+    0deg,
+    rgba(66, 33, 97, 1) 0%,
+    rgba(34, 193, 195, 1) 83%
+  );
 }
 /* Loader */
 
@@ -239,7 +253,12 @@ nav input {
   flex-direction: column;
   justify-content: space-between;
   border-radius: 20px;
-  background-color: #ffcb05;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(255, 203, 5, 1) 100%
+  );
   margin-bottom: 1rem;
 }
 .pokeCard a {
@@ -281,11 +300,12 @@ nav input {
   max-width: 60%;
 
   border-radius: 20px;
-  background-color: #ffcb05;
-}
-
-.imgContainer.theme--dark {
-  background-color: teal;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(255, 203, 5, 1) 100%
+  );
 }
 
 .imgContainer img {
