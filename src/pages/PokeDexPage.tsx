@@ -11,6 +11,7 @@ function PokeDexPage() {
     const { id } = useParams();
     const navigate = useNavigate();
     const audioRef = useRef<HTMLAudioElement>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
     const [currentId, setCurrentId] = useState(Number(id));
 
     const fetchPokemonDetailed = async (id: string | undefined) => {
@@ -36,14 +37,17 @@ function PokeDexPage() {
         fetchSpeciesText(currentId.toString());
     }, [currentId]);
 
-    const playSound = () => {
-        if (audioRef.current) {
-            const playPromise = audioRef.current.play();
-            if (playPromise !== undefined) {
-                playPromise.catch((e) => console.error("Playback error:", e));
-            }
+    const handlePlayPause = () => {
+        if (isPlaying) {
+          audioRef.current!.pause();
+        } else {
+          const playPromise = audioRef.current!.play();
+          if (playPromise !== undefined) {
+            playPromise.catch((e) => console.error("Playback error:", e));
+          }
         }
-    };
+        setIsPlaying(!isPlaying);
+      };
 
     const handlePokemonPlus = () => {
         const nextId = currentId + 1;
@@ -84,7 +88,7 @@ function PokeDexPage() {
             <div className="flexbox">
                 <div className="pokedex1">
                     <div className="pokedex-hat">
-                        <div className="big-circle" onClick={playSound}>
+                        <div className="big-circle" onClick={handlePlayPause}>
                             <div className="lense"></div>
                         </div>
                         <div className="small-circle red"></div>
