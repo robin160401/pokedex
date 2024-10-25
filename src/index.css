@@ -177,6 +177,15 @@ nav input {
 
 /* DetailsPage */
 
+/* .detailsCard {
+  margin: 25px auto;
+  padding-top: 0.01rem;
+  height: 60vw;
+  width: 40vw;
+  background-color: #222;
+  border-radius: 20px;
+} */
+
 .details-container {
   width: 30vw;
   margin: 15rem auto;
@@ -189,8 +198,8 @@ nav input {
   text-transform: capitalize;
 }
 .imgContainer {
-  width: 25vw;
-  height: 20vh;
+  width: 25rem;
+  height: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -211,8 +220,46 @@ nav input {
   -webkit-text-stroke: 3px #2c72b8;
   color: #ffcb05;
   font-family: RobotoBk;
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 900;
+}
+
+.detailsText-container {
+  padding: 2rem;
+}
+
+.detailsText h2 {
+  color: #ffcb05;
+  font-family: RobotoBk;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.detailsText h3 {
+  font-family: RobotoBk;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.detailsText p {
+  font-family: RobotoBk;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+.playBtn {
+  background-color: transparent;
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.playBtn img {
+  background-color: #2c72b8;
+  border-radius: 80px;
+  height: 40px;
 }
 /* Footer */
 
